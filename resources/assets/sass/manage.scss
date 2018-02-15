@@ -1,0 +1,219 @@
+/* Sidebar */
+
+.sidebar {
+	position: fixed;
+	background-color: white;		
+	height: 100vh;
+	width: 20%;
+	margin-top: 0px;
+	overflow-y: auto; 
+}
+
+.sidebar p {
+	color: grey;
+	margin: 10px 0px;
+	font-size: 15px;
+}
+
+.sidebar ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.sidebar a {
+	color: #2F4F4F;
+	padding: 15px 20px;
+	text-decoration: none;	
+	font-weight: bold;
+	font-size: 16px;
+	display: block;
+	opacity: 0.9;
+}
+
+.sidebar .fa {
+	margin-right: 6px;
+}
+
+.sidebar a:hover {
+	background-color: #f3f3f4 !important;
+	color: #00FA9A !important;
+	display: block;
+}
+
+.sidebar .active a {
+	background-color: #f3f3f4;
+	color: #00FA9A !important;
+}
+
+.sidebar .collapseable a {	
+	color: #2F4F4F !important;
+	padding-left: 50px;
+	padding-top: auto;
+	font-weight: bold;
+	font-size: 15px;	
+	text-decoration: none;
+	display: block;
+	opacity: 0.9;
+}
+
+.sidebar .collapseable a:hover {	
+	color: #00FA9A !important;
+}
+
+.menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar .collapseable {
+	border-left: 4px solid #00FA9A;
+	background-color: #f3f3f4;	
+}
+
+.display-table {
+	display: table;
+	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+.display-table-row {
+	display: table-row;
+	height: 100%;
+}
+
+.display-table-cell {
+	display: table-cell;
+	float: none;
+	height: 100%;
+}
+
+.valign-top {
+	vertical-align: top;
+}
+
+/* Management Content */
+.management-area {
+	position: absolute;
+	top: 4rem;
+	left: 20%;
+	right: 0;
+	margin-top: 20px;
+}
+
+/* User Account */
+
+.flex-container {
+	background-color: #fff;
+	margin-left: 3%;
+	margin-top: 2%;
+}
+
+.flex-container header {
+	padding: 10px 0px;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.form {
+	padding: 20px;
+}
+
+.form-wrapper {
+	background-color: #eee;
+	padding: 20px;
+}
+
+.button {
+	margin-bottom: 40px;
+}
+
+.show-content {
+	padding: 10px;
+}
+
+.label {
+	font-size: 20px;
+}
+
+
+
+.role-box {
+	margin: 50px 10px 20px 10px;
+}
+
+.role-content {
+	padding: 10px 10px 10px 10px;
+}
+
+/* Search */
+
+.search_header {
+	position: relative;
+	margin-top: 60px;
+}
+
+#search {
+	padding-top: 17px;
+	vertical-align: center;
+	border: none;
+	outline: none;
+}
+
+#nav-header {
+	background-color: #fff;
+	border-bottom: 1px solid #e7eaec;
+	height: 40px;
+	margin-left: 22%;
+}
+
+#nav-header ul {	
+	list-style: none;
+	color: #676a6c;
+}
+
+#nav-header ul li {
+	float: left;
+	margin-left: 20px;
+	padding: 0px 0px;
+}
+
+#nav-header .welcome {
+	margin-right: 20px;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+#nav-header li a {
+	margin-right: 20px;
+}
+
+#nav-header li .label {
+	position: absolute;
+}
+
+/* Footer */
+#foot {
+	bottom: 100px;	
+}
+
+#footer {
+	background-color: #fff;
+	border-bottom: 1px solid #e7eaec;
+	margin-left: 22%;
+	padding: 10px;
+	width: 100%;
+	font-size: 12px;
+	color: #676a6c;
+}
+
+#footer li {	
+	list-style: none;
+	color: #676a6c;
+	float: left;
+}
