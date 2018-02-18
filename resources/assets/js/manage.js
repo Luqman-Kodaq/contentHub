@@ -6,6 +6,7 @@ function setMenuStyles (menu, maxHeight, margins) {
   menu.style.marginBottom = margins
 }
 
+
 for (var i = 0; i < accordions.length; i++) {
 	if (accordions[i].classList.contains('active')) {
 		const menu = accordions[i].nextElementSibling;

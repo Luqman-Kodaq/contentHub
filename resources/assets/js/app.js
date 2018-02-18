@@ -24,7 +24,7 @@ Vue.use(BootstrapVue);
 
 $(document).ready(function(){
 
- $('ul.nav li.dropdown').hover(function(){
+ $('ul.drop-tab li.dropdown').hover(function(){
 
   $('.dropdown-menu', this).fadeIn();
 
@@ -36,5 +36,11 @@ $(document).ready(function(){
 
 });
 
+const adminSlideButton = document.getElementById('admin-slideout-button')
+
+adminSlideButton.onclick = function () {
+  this.classList.toggle('active');
+  document.getElementById('admin-side-menu').classList.toggle('active');
+}
 
 require('./manage')

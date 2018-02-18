@@ -30775,7 +30775,7 @@ var OBSERVER_CONFIG = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(75);
-module.exports = __webpack_require__(211);
+module.exports = __webpack_require__(212);
 
 
 /***/ }),
@@ -30813,7 +30813,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_boot
 
 $(document).ready(function () {
 
-  $('ul.nav li.dropdown').hover(function () {
+  $('ul.drop-tab li.dropdown').hover(function () {
 
     $('.dropdown-menu', this).fadeIn();
   }, function () {
@@ -30822,7 +30822,14 @@ $(document).ready(function () {
   }); //Hover
 });
 
-__webpack_require__(219);
+var adminSlideButton = document.getElementById('admin-slideout-button');
+
+adminSlideButton.onclick = function () {
+  this.classList.toggle('active');
+  document.getElementById('admin-side-menu').classList.toggle('active');
+};
+
+__webpack_require__(211);
 
 /***/ }),
 /* 76 */
@@ -62805,19 +62812,6 @@ function removeBVPO(el) {
 /* 211 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 212 */,
-/* 213 */,
-/* 214 */,
-/* 215 */,
-/* 216 */,
-/* 217 */,
-/* 218 */,
-/* 219 */
-/***/ (function(module, exports) {
-
 var accordions = document.getElementByClassName('submenu');
 
 function setMenuStyles(menu, maxHeight, margins) {
@@ -62845,6 +62839,12 @@ for (var i = 0; i < accordions.length; i++) {
 		}
 	};
 };
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

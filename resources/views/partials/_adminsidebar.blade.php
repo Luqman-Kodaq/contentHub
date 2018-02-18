@@ -1,7 +1,6 @@
-	
-		<!-- Side menu -->
-		<aside class="row main-sidebar p-l-20">
-		<section class="hidden-xs sidebar display-table-cell valign-top">			
+	<!-- Side menu -->
+		<aside id="admin-side-menu" class="row main-sidebar">
+		<section class="sidebar display-table-cell valign-top">			
 			<ul class="side-items m-t-10">
 			<li class="{{Nav::isRoute('manage.dashboard')}}">
 				<a href="{{route('manage.dashboard')}}"><span class="fa fa-th" aria-hidden="true"></span>Dashboard</a>
@@ -18,7 +17,7 @@
 			</li>
 			<li class="{{Nav::isResource('posts', 2)}}ink">
 				<a href="#collapse-blog" data-toggle="collapse" aria-controls="collapse-blog"><span class="fa fa-pencil" aria-hidden="true"></span>
-				<span class="hidden-sm hidden-xs">Blog</span>
+				<span class="hidden-sm hidden-xs">Blog Posts</span>
 				</a>
 				<ul class="collapse collapseable" id="collapse-blog">
 					<a href="{{route('posts.index')}}">Posts</a>

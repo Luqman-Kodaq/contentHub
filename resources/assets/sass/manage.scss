@@ -1,27 +1,53 @@
-/* Sidebar */
+/* ========================================
+   	  ============ SIDEBAR ===========
+   ======================================== */
 
-.sidebar {
+#admin-side-menu {
 	position: fixed;
-	background-color: white;		
+	background-color: white;
+	top: 4rem;	
+	left: -14%;
+	width: 14%;
 	height: 100vh;
-	width: 20%;
-	margin-top: 0px;
-	overflow-y: auto; 
+	margin-top: 70px;
+	overflow-y: auto;
+  	z-index: 100;
+	transition: left 0.3s ease-in-out;
+	&.active {
+    	left: 0;
+		transition: left 0.3s ease-in-out;
+		margin-top: 10px;
+		width: inherit;
+  		z-index: 100;
+		overflow-y: auto;
+	}
+
+	@include media-breakpoint-up(lg) {
+		left: 0;
+		transition: left 0.3s ease-in-out;
+		width: inherit;
+  		z-index: 100;		
+		overflow-y: auto;
+	}
 }
 
-.sidebar p {
+#admin-side-menu .sidebar p {
 	color: grey;
 	margin: 10px 0px;
 	font-size: 15px;
 }
 
-.sidebar ul {
+#admin-side-menu .sidebar ul {
 	list-style: none;
 	margin: 0px;
 	padding: 0px;
 }
 
-.sidebar a {
+#admin-side-menu .sidebar .fa {
+	margin-right: 6px;
+}
+
+#admin-side-menu .sidebar a {
 	color: #2F4F4F;
 	padding: 15px 20px;
 	text-decoration: none;	
@@ -31,22 +57,18 @@
 	opacity: 0.9;
 }
 
-.sidebar .fa {
-	margin-right: 6px;
-}
-
-.sidebar a:hover {
+#admin-side-menu .sidebar a:hover {
 	background-color: #f3f3f4 !important;
 	color: #00FA9A !important;
 	display: block;
 }
 
-.sidebar .active a {
+#admin-side-menu .sidebar .active a {
 	background-color: #f3f3f4;
 	color: #00FA9A !important;
 }
 
-.sidebar .collapseable a {	
+#admin-side-menu .sidebar .collapseable a {	
 	color: #2F4F4F !important;
 	padding-left: 50px;
 	padding-top: auto;
@@ -57,17 +79,16 @@
 	opacity: 0.9;
 }
 
-.sidebar .collapseable a:hover {	
+#admin-side-menu .sidebar .collapseable a:hover {	
 	color: #00FA9A !important;
 }
 
 .menu {
-  max-height: 0;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
 }
 
-.sidebar .collapseable {
+#admin-side-menu .sidebar .collapseable {
 	border-left: 4px solid #00FA9A;
 	background-color: #f3f3f4;	
 }
