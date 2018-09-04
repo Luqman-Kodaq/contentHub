@@ -15,17 +15,16 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-   @include('partials._nav')
+    @include('_includes.nav.main')
 
-    @include('partials._adminsidebar')
-
-     @include('partials._javascript')
-    <div class="container management-area" id="permissions">
+    @include('_includes.nav.manage')
+    <div class="container management-area">
        @yield('content')    
     </div>
       
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @include('_includes.notifications.toast')
   @yield('scripts')
 </body>
 </html>

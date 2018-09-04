@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('flash::message')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -14,7 +15,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in as a <strong>USER!</strong>
                 </div>
             </div>
         </div>

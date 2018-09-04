@@ -1,16 +1,16 @@
 @extends('layouts.manage')
 
 @section('content')
-<div class="flex-container">
-		<header class="row">
-			<h1 class="title m-l-30">Manage Permissions</h1>			
-		</header>
-		<div class="pull-right">
-			<a href="{{route('permissions.create')}}" class="btn btn-md btn-primary"><i class="fa fa-user-plus m-r-10"></i> Create New Permission</a>
-		</div>
-		<hr class="m-t-0">
+<div class="row m-t-50">
+	<div class="col-md-10 col-md-offset-2 col-sm-4">
+			<h1 class="title m-l-30">Manage Permissions</h1>
+	</div>
+	<div class="col-md-2 col-sm-4">
+			<a href="{{route('permissions.create')}}" class="btn btn-primary pull-right m-t-10 m-r-70"><i class="fa fa-user-plus m-r-10"></i> Create New Permission</a>
+	</div>
 
-		<div class="thumbnail-content">
+	<div class="col-md-10 col-md-offset-2 col-sm-4 flex-container">
+	<hr class="m-t-0">
 		<table class="table">
 		<thead>
 			<tr>
@@ -27,17 +27,14 @@
 					<th>{{$permission->display_name}}</th>
 					<td>{{$permission->name}}</td>
 					<td>{{$permission->description}}</td>
-					<td><a class="btn btn-success btn-sm" href="{{route('permissions.show', $permission->id)}}">View</a>  <a class="btn btn-secondary btn-sm" href="{{route('permissions.edit', $permission->id)}}">Edit</a></td>
+					<td><a class="btn btn-success btn-sm" href="{{route('permissions.show', $permission->id)}}">View</a>  <a class="btn btn-secondary btn-sm m-l-5" href="{{route('permissions.edit', $permission->id)}}">Edit</a></td>
 				</tr>
 				@endforeach
 			</tbody>
-		</table>		
-		</div>
-	</div> <!-- End of thumbnail -->
-
+		</table>
 	<div class="text-center">
 	{{$permissions->links()}}	
-	</div>
-
+	</div>		
+	</div><!-- End of thumbnail -->
 </div>
 @stop

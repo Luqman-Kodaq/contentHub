@@ -1,8 +1,8 @@
 @extends('layouts.manage')
 
 @section('content')
-	<div class="row">
-	<div class="col-sm-12 col-md-12 col-lg-11 col-lg-offset-4">
+	<div class="row m-t-50">
+	<div class="col-md-10 col-md-offset-2 col-sm-10">
 	<div class="flex-container m-l-25">
 		<div class="row">
 			<h2 class="title m-l-30">Create New Users</h2>
@@ -20,14 +20,32 @@
 					
 					<div class="form-group">
 						<label for="email" class="control-label">Email:</label>						
-						<input type="text" name="email" class="form-control" id="email" :value="{{ old('email')}}" placeholder="Enter your email...">
+						<input type="text" name="email" class="form-control" id="email" value="{{ old('email')}}" placeholder="Enter your email...">
 						<small>Your email is confidential with us</small>
 					</div>
 					
+					<!-- Password checkbox -->
 					<div id="check" class="form-group">
             		<label for="password" class="control-label">Password:</label>
-            		<input type="text" class="form-control" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
+            		<input type="password" class="form-control" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
               		<b-checkbox name="auto_generate" class="m-t-15" v-model="auto_password">Auto Generate Password</b-checkbox>
+
+              		<br>
+
+              		<!-- Roles Checkbox -->
+              		<div>
+          			<label for="role" class="control-label">Roles</label>
+		  			<input type="hidden" name="roles" :value="rolesSelected" />
+
+		        				
+					<div class="form-group">
+		      				@foreach ($roles as $role)
+		   				<div class="form-group">
+		   					<b-checkbox name="rolesSelected" v-model="rolesSelected" :value="{{$role->id}}">{{$role->display_name}}</b-checkbox>
+		   				</div>
+		      				@endforeach
+					</div>
+					</div>
           			</div>
 
 		          	<div class="button">
@@ -53,7 +71,8 @@
  var app = new Vue({
   el: '#check',
     data: {
-        auto_password: false
+        auto_password: false,
+        rolesSelected: [{!! old('roles') ? old('roles') : '' !!}]
         }
     });
 </script>

@@ -1,12 +1,10 @@
 @extends('layouts.manage')
 
 @section('content')
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-11 col-lg-offset-4">
+<div class="row m-t-50">
+<div class="col-md-10 col-md-offset-2 col-sm-10">
 	<div class="flex-container m-l-25">
-			<div>
-				<h1 class="title m-l-30">Edit User</h1>
-			</div>
+		<h1 class="title m-l-30">Edit User</h1>
 		<hr class="m-t-0">
 
 		<div class="form">

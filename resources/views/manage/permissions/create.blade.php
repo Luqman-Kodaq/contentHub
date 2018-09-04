@@ -1,29 +1,30 @@
 @extends('layouts.manage')
 
 @section('content')
-<div class="flex-container m-l-25">
-	<header class="row">
+<div class="row m-t-50">
+  <div class="col-md-10 col-md-offset-2 col-sm-4">
 			<h1 class="title m-l-30">Create New Permissions</h1>
-	</header>				
+	</div>				
 	<hr class="m-t-0">
 
-  <div class="form">
+  <div class="col-md-10 col-md-offset-2 col-sm-4 flex-container">
     <div class="form-wrapper">
 		<form action="{{route('permissions.store')}}" method="POST" class="thumbnail">
 			{{csrf_field()}}
 
-            <b-radio-group v-model="permissionType">
+        <b-radio-group id="permissions" v-model="permissionType" name="permission_type">
 			      <div class="form-group" style="display: inline-flex;">
-                <b-radio name="permission_type" value="basic">Basic Permission</b-radio>
-                <b-radio class="m-l-10" name="permission_type" value="crud">CRUD Permission</b-radio>
+                <b-radio v-model="permissionType" name="permission_type" value="basic">Basic Permission</b-radio>
+                <b-radio v-model="permissionType" class="m-l-10" name="permission_type" value="crud">CRUD Permission</b-radio>
           	</div>
           	
            	<div class="form-group" v-if="permissionType == 'basic'" value="basic">
+            <div class="form-group">
             <label for="display_name" class="control-label">Name (Display Name)</label>
             <p class="control">
               <input type="text" class="form-control" name="display_name" id="display_name">
             </p>
-          	
+            </div>          	
 
 	         <div class="form-group">
 	           <label for="name" class="control-label">Slug</label>
@@ -40,14 +41,12 @@
           	</div>
             </div>
 
-            <div class="form-group" v-if="permissionType == 'crud'" value="crud">
-            <label for="resource" class="control-label">Resource</label>
-            <p class="control">
-              <input type="text" class="form-control" name="resource" id="resource" v-model="resource" placeholder="The name of the resource">
-            </p>
+          <div class="form-group" v-if="permissionType == 'crud'">
+            <label for="resource">Resource</label>
+              <input type="text" class="form-control" name="resource" id="resource" v-model="resource" value="resource" placeholder="The name of the resource">
           	
 
-          	<div class="columns">
+          <div class="columns">
             <div class="column">
               <b-checkbox-group>
                 <div class="form-group">
@@ -106,7 +105,7 @@ var permissions = new Vue({
    data: {
     permissionType: 'basic',
     resource: '',
-    crudSelected: []
+    crudSelected: ['create', 'read', 'update', 'delete']
    },
     methods: {
         crudName: function(item) {
@@ -122,25 +121,3 @@ var permissions = new Vue({
 });
 </script>
 @endsection
-
- <!--
-    var permissions = new Vue({
-      el: '#permissions',
-      data: {
-        permissionType: 'basic',
-        resource: '',
-        crudSelected: ['create', 'read', 'update', 'delete']
-      },
-      methods: {
-        crudName: function(item) {
-          return item.substr(0,1).toUpperCase() + item.substr(1) + " " + permissions.resource.substr(0,1).toUpperCase() + permissions.resource.substr(1);
-        },
-        crudSlug: function(item) {
-          return item.toLowerCase() + "-" + permissions.resource.toLowerCase();
-        },
-        crudDescription: function(item) {
-          return "Allow a User to " + item.toUpperCase() + " a " + permissions.resource.substr(0,1).toUpperCase() + permissions.resource.substr(1);
-        }
-      }
-    });
-  -->

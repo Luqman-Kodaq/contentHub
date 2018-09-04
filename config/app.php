@@ -173,7 +173,8 @@ return [
 
         DevMarketer\EasyNav\EasyNavServiceProvider::class,
 
-        DevMarketer\LaraFlash\LaraFlashServiceProvider::class,
+        // DevMarketer\LaraFlash\LaraFlashServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -185,9 +186,10 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ObserverServiceProvider::class,
 
     ],
 
@@ -218,11 +220,13 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+        'Form' => Collective\Html\FormFacade::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'Html' => Collective\Html\HtmlFacade::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Laratrust' => Laratrust\LaratrustFacade::class,
-        'LaraFlash' => DevMarketer\LaraFlash\LaraFlashFacade::class,
+        // 'LaraFlash' => DevMarketer\LaraFlash\LaraFlashFacade::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Nav' => DevMarketer\EasyNav\EasyNavFacade::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,

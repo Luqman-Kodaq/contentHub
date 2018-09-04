@@ -8,22 +8,25 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Home') }}</title>
+    <title>{{ config('app.name')}} @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 
-    @include('partials._nav')
-
-    @include('partials._javascript')
+    @include('_includes.nav.main')
     <div id="app">
         @yield('content')
     </div>
+    @include('_includes._footer')
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+        $('#flash-overlay-modal').modal();
+    </script>
+    @include('_includes.notifications.toast')
     @yield('scripts')
 </body>
 </html>

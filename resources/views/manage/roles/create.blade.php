@@ -1,13 +1,13 @@
 @extends('layouts.manage')
 
 @section('content')
-  <div class="flex-container">
-      <header class="row">
+  <div class="row m-t-50">
+      <div class="col-md-10 col-md-offset-2 col-sm-4">
         <h1 class="title m-l-30">Create New Role</h1>
-      </header>
-    <hr class="m-t-0">
+      </div>
 
-    <div class="form">
+    <div class="col-md-10 col-md-offset-2 col-sm-4 flex-container">
+    <hr class="m-t-0">
       <div class="form-wrapper">
     <form action="{{route('roles.store')}}" method="POST">
       {{ csrf_field() }}
@@ -32,11 +32,13 @@
                   <article>
                     <div id="app">              
                         <h2 class="title">Permissions:</h2>
+                          <b-checkbox-group v-model="permissionsSelected" name="permissions">
                          @foreach ($permissions as $permission)
                             <div class="form-group">
-                               <b-checkbox v-model="permissionsSelected" value="{{$permission->id}}">{{$permission->display_name}} <em>({{$permission->description}})</em></b-checkbox>
+                               <b-checkbox v-model="permissionsSelected" :value="{{$permission->id}}">{{$permission->display_name}} <em>({{$permission->description}})</em></b-checkbox>
                             </div>
-                          @endforeach                  
+                          @endforeach
+                          </b-checkbox-group>         
                     </div>
                   </article>
                 </div> <!-- end of .box -->
@@ -49,7 +51,7 @@
       </div>
     </form>
   </div>
-</div>
+  </div>
   </div>
 @endsection
 

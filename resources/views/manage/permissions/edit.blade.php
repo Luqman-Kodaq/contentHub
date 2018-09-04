@@ -1,13 +1,14 @@
 @extends('layouts.manage')
 
 @section('content')
-  <div class="flex-container m-l-25">
-      <header class="row">
+<div class="row m-t-50">
+    <div class="col-md-10 col-md-offset-2 col-sm-4">
         <h1 class="title m-l-30">View Permission Details</h1>
-      </header> <!-- end of column -->
+    </div> <!-- end of column -->
     <hr class="m-t-0">
 
-    <div class="form">
+  <div class="col-md-10 col-md-offset-2 col-sm-4">
+    <hr class="m-t-0">
     <div class="form-wrapper">
     <form action="{{route('permissions.update', $permissions->id)}}" method="POST">
       {{csrf_field()}}
@@ -29,7 +30,8 @@
         </div>
 
         <div class="button">
-          <button class="btn btn-primary pull-right m-r-0">Save Changes</button>
+          <button class="btn btn-primary pull-right m-r-0">Save Changes
+          </button>
           <a class="btn btn-warning fa fa-caret-left pull-left" href="{{route('permissions.index')}}"> Back</a> 
         </div>
     </form>

@@ -8,6 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Slug = require('slug');
+Slug.defaults.mode = "rfc3986";
 
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
@@ -20,21 +22,21 @@ Vue.use(BootstrapVue);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
+Vue.component('slugWidget', require('./components/slugWidget.vue'));
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
- $('ul.drop-tab li.dropdown').hover(function(){
+//  $('ul li.dropdown').hover(function(){
 
-  $('.dropdown-menu', this).fadeIn();
+//   $('.dropdown-menu', this).fadeIn();
 
- }, function(){
+//  }, function(){
 
-  $('.dropdown-menu', this).fadeOut('fast');
+//   $('.dropdown-menu', this).fadeOut('fast');
 
- });//Hover
+//  });//Hover
 
-});
+// });
 
 const adminSlideButton = document.getElementById('admin-slideout-button')
 
@@ -43,4 +45,4 @@ adminSlideButton.onclick = function () {
   document.getElementById('admin-side-menu').classList.toggle('active');
 }
 
-require('./manage')
+// require('./manage')

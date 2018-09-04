@@ -12,17 +12,25 @@
 				<ul class="collapse collapseable" id="collapse-pages">
 					<a href="#">Products</a>
 					<a href="#">Contact</a>
-					<a href="#">About Us</a>	
+					<a href="#">About Us</a>
 				</ul>
 			</li>
-			<li class="{{Nav::isResource('posts', 2)}}ink">
+			<li class="{{Nav::hasSegment(['posts', 'categories', 'tags'], 2)}}">
 				<a href="#collapse-blog" data-toggle="collapse" aria-controls="collapse-blog"><span class="fa fa-pencil" aria-hidden="true"></span>
 				<span class="hidden-sm hidden-xs">Blog Posts</span>
 				</a>
 				<ul class="collapse collapseable" id="collapse-blog">
 					<a href="{{route('posts.index')}}">Posts</a>
-					<a href="#">Categories</a>
+					<a href="{{route('categories.index')}}">Categories</a>
 					<a href="#">Tags</a>
+				</ul>
+			</li>
+			<li class="{{Nav::isResource('admins')}}">
+				<a href="#collapse-admins" data-toggle="collapse" aria-controls="collapse-admins"><span class="fa fa-user" aria-hidden="true"></span>
+				<span class="hidden-sm hidden-xs">Admins</span>
+				</a>
+				<ul class="collapse collapseable" id="collapse-admins">
+					<a href="{{route('admins.index')}}">All Admins</a>
 				</ul>
 			</li>
 			<li class="{{Nav::isResource('users')}}">

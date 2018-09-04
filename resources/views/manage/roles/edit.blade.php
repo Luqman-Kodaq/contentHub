@@ -1,14 +1,13 @@
 @extends('layouts.manage')
 
 @section('content')
-  <div class="flex-container">
-   <header class="row m-l-30">
-        <h1 class="title">Edit {{$role->display_name}}</h1>
-    </header>
+<div class="row m-t-50">
+    <div class="col-md-10 col-md-offset-2 col-sm-4">
+        <h1 class="title m-l-20">Edit {{$role->display_name}}</h1>
+    </div>
 
+    <div class="col-md-10 col-md-offset-2 col-sm-4 flex-container">
     <hr class="m-t-0">
-
-    <div class="form">
     <div class="form-wrapper">
     <form action="{{route('roles.update', $role->id)}}" method="POST">
       {{ csrf_field() }}
@@ -35,16 +34,14 @@
       <div class="columns">
         <div class="column">
           <div>
-            <article>
               <div id="app">              
                   <h2 class="title">Permissions:</h2>
                    @foreach ($permissions as $permission)
                       <div class="form-group">
-                         <b-checkbox v-model="permissionsSelected" value="{{$permission->id}}">{{$permission->display_name}} <em>({{$permission->description}})</em></b-checkbox>
+                         <b-checkbox v-model="permissionsSelected" name="permissions" value="{{$permission->id}}">{{$permission->display_name}} <em>({{$permission->description}})</em></b-checkbox>
                       </div>
-                    @endforeach                  
+                    @endforeach
               </div>
-            </article>
           </div> <!-- end of .box -->
 
           <div class="button">

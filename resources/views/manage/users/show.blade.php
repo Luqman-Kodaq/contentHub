@@ -1,21 +1,18 @@
 @extends('layouts.manage')
 
 @section('content')
-<div class="row">
-<div class="col-sm-12 col-md-12 col-lg-11 col-lg-offset-4">
-	<div class="flex-container m-l-25">
-		<div class="columns m-t-10">
-			<div>
+<div class="row m-t-50">
+			<div class="col-md-10 col-md-offset-2 col-sm-6">
 				<h1 class="title m-l-30">View User Details</h1>			
 			</div> <!-- end of .column -->
 
-			<div class="row pull-right">
-				<a href="{{route('users.edit', $user->id)}}" class="btn btn-primary m-r-20"><i class="fa fa-user m-r-10"></i> Edit User</a>
-			</div>			
-		</div>
+			<div class="col-md-2 col-sm-4">
+				<a href="{{route('users.edit', $user->id)}}" class="btn btn-primary m-r-40"><i class="fa fa-user m-r-10"></i> Edit User</a>
+			</div>
+</div> <!-- end of .row -->
 		<hr class="m-t-0">
 
-		<div class="show-content">
+		<div class="col-md-10 col-md-offset-2 col-sm-10 flex-container">
 					<div class="">
 						<label class="label"><strong>Name</strong></label>
 						<div>
@@ -43,10 +40,6 @@
 		</div>
 
 		<div>
-			<a class="btn btn-warning fa fa-caret-left pull-left m-t-10" href="{{route('users.index')}}"> Back</a>		
+			<a class="btn btn-warning fa fa-caret-left pull-left m-l-30 m-t-10" href="{{route('users.index')}}"> Back</a>		
 		</div>
-
-	</div>
-</div>
-</div>
 @endsection

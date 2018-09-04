@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LaraFlash;
+use Laracasts;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        LaraFlash::add('Successfully Saved Post');
+        flash('Welcome to my Blog!!!');
         return view('home');
     }
 }

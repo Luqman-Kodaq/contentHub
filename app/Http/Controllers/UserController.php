@@ -8,10 +8,16 @@ use App\Role;
 use DB;
 use Session;
 use Hash;
+use Input;
 
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -30,7 +36,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('manage.users.create');
+        $roles = Role::all();
+         return view('manage.users.create')->withRoles($roles);
     }
 
     /**
@@ -64,13 +71,13 @@ class UserController extends Controller
        $user->name = $request->name;
        $user->email = $request->email;
        $user->password = Hash::make($password);
+       $user->save();
 
-       if ($user->save()) {
-        return redirect()->route('users.show', $user->id);
-       } else {
-        Session::flash('danger', 'Sorry a problem occurred while creating this user');
-         return redirect()->route('users.create');
-       }
+      if ($request->roles) {
+        $user->syncRoles(explode(',', $request->roles));
+      }
+
+      return redirect()->route('users.show', $user->id);
     }
 
     /**
@@ -117,23 +124,23 @@ class UserController extends Controller
         $user->email = $request->email;
         if ($request->password_options == 'auto') {
            $length = 10;
-        $keyspace = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
-        $str = '';
+            $keyspace = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
+            $str = '';
         $max = mb_strlen($keyspace, '8bit') - 1;
         for ($i = 0; $i < $length; ++$i) {
             $str .= $keyspace[random_int(0, $max)];
         }
-        $password = $str;    
-        } elseif ($request->password_options == 'manual') {
+        $user->password = Hash::make($str);
+        } 
+        elseif ($request->password_options == 'manual')
+        {
             $user->password = Hash::make($request->password);
         }
 
-        if ($user->save()) {
-            return redirect()->route('users.show', $id);
-        } else {
-            Session::flash('error', 'There was a problem saving the updated user info to the database. Try again');
-            return redirect()->route('users.edit', $id);
-        }
+        $user->save();
+
+        $user->syncRoles(explode(',', $request->roles));
+        return redirect()->route('users.show', $id);
     }
 
     /**

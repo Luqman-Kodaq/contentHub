@@ -22,7 +22,7 @@
 		overflow-y: auto;
 	}
 
-	@include media-breakpoint-up(lg) {
+	@media (min-width: 769px) {
 		left: 0;
 		transition: left 0.3s ease-in-out;
 		width: inherit;
@@ -115,17 +115,25 @@
 	vertical-align: top;
 }
 
-/* Management Content */
+
+/* ========================================
+ 	========= MANAGEMENT LAYOUT ===========
+   ======================================== */
 .management-area {
-	position: absolute;
-	top: 4rem;
-	left: 20%;
+	position: relative;
+	left: 7%;
 	right: 0;
 	margin-top: 20px;
+
+	@media (min-width: 769px) {
+		left: 7%;
+		right: 0;
+		width: inherit;
+	}
 }
-
-/* User Account */
-
+/* ========================================
+ 	========= MANAGEMENT CRUD ===========
+   ======================================== */
 .flex-container {
 	background-color: #fff;
 	margin-left: 3%;
@@ -134,6 +142,10 @@
 
 .flex-container header {
 	padding: 10px 0px;
+}
+
+.card-container {
+	margin-top: 1.5%;
 }
 
 .title {
@@ -172,20 +184,6 @@
 	padding: 10px 10px 10px 10px;
 }
 
-/* Search */
-
-.search_header {
-	position: relative;
-	margin-top: 60px;
-}
-
-#search {
-	padding-top: 17px;
-	vertical-align: center;
-	border: none;
-	outline: none;
-}
-
 #nav-header {
 	background-color: #fff;
 	border-bottom: 1px solid #e7eaec;
@@ -218,6 +216,67 @@
 	position: absolute;
 }
 
+/* ========================================
+ 	========= POST CRUD ===========
+   ======================================== */
+.card-body {	
+    margin: auto 0 auto 10px;
+    .card-subtitle {    
+          font-weight: 300;
+          font-size: 0.8em;
+    }
+
+&.post-status-widget {
+    .status {
+      display: flex;
+      align-content: flex-start;
+      .status-icon {
+        min-width: 50px;
+        .icon {
+          width: 100%;
+          i {
+            text-align: center;
+          }
+        }
+      }
+      .status-details {
+        margin-left: 10px;
+        h4 {
+          font-weight: 400;
+          span.status-emphasis {
+            font-weight: 800;
+          }
+        }
+        p {
+          font-weight: 300;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+  &.publish-buttons-widget {
+    display: flex;
+    min-height: 50px;
+
+    .secondary-action-button {
+      flex: 1;
+      margin: 0 5px;
+    }
+  }
+ }
+
+/* ========================================
+ 	========= SLUG WIDGET ===========
+   ======================================== */
+ .slug-widget {
+  .subdirectory-url, .root-url {
+    display: none;
+    @media (min-width: 769px) {
+      display: inline-block;
+    }
+  }
+}
+
 /* Footer */
 #foot {
 	bottom: 100px;	
@@ -237,4 +296,19 @@
 	list-style: none;
 	color: #676a6c;
 	float: left;
+}
+
+/* ========================================
+   	  ============ ADMIN ===========
+   ======================================== */
+.admin-card {
+	width: 20rem;	
+}
+
+.admin-create {
+	margin-left: 11rem;
+
+	@media (max-width: 992px) {
+      margin-left: 0rem;
+    }
 }

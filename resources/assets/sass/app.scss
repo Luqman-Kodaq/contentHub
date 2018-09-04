@@ -7,16 +7,22 @@
 @import "node_modules/font-awesome/scss/font-awesome";
 
 // Variables
-//@import "variables";
+// @import "_variables";
+
+// Variables
+@import "customvariables";
+
+// Functions
+@import "functions";
 
 // Bootstrap
 @import "node_modules/bootstrap/scss/bootstrap";
 
 // Bootstrap-sass
-//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 // Custom SASS Pages
 @import "overrides";
 @import "helpers";
 @import "manage/";
-//@import "styles";
+@import "styles";
